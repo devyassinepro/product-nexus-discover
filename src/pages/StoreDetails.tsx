@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
@@ -6,8 +5,6 @@ import {
   ExternalLink, 
   Facebook, 
   Instagram, 
-  TikTok, 
-  Pintrest,
   MoreHorizontal,
   Store
 } from "lucide-react";
@@ -133,12 +130,12 @@ const StoreDetails = () => {
                       )}
                       {storeData.socialMedia.tiktok && (
                         <Button variant="outline" size="icon" className="h-8 w-8">
-                          <TikTok className="h-4 w-4" />
+                          <span className="text-xs">TT</span>
                         </Button>
                       )}
                       {storeData.socialMedia.pinterest && (
                         <Button variant="outline" size="icon" className="h-8 w-8">
-                          <Pintrest className="h-4 w-4" />
+                          <span className="text-xs">Pin</span>
                         </Button>
                       )}
                     </div>
