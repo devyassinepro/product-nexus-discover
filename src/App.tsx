@@ -11,6 +11,14 @@ import Dashboard from "./pages/Dashboard";
 import Trending from "./pages/Trending";
 import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
+import SalesTracker from "./pages/SalesTracker";
+import RealTimeSearch from "./pages/RealTimeSearch";
+import ShopifyImporter from "./pages/ShopifyImporter";
+import Tutorials from "./pages/Tutorials";
+import SupportTickets from "./pages/SupportTickets";
+import Settings from "./pages/Settings";
+import Billing from "./pages/Billing";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +51,70 @@ const App = () => (
               element={
                 <AppLayout>
                   <Research />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/sales-tracker" 
+              element={
+                <AppLayout>
+                  <SalesTracker />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/realtime" 
+              element={
+                <AppLayout>
+                  <RealTimeSearch />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/shopify-importer" 
+              element={
+                <AppLayout>
+                  <ShopifyImporter />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/tutorials" 
+              element={
+                <AppLayout>
+                  <Tutorials />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/tickets" 
+              element={
+                <AppLayout>
+                  <SupportTickets />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/settings" 
+              element={
+                <AppLayout>
+                  <Settings />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/billing" 
+              element={
+                <AppLayout>
+                  <Billing />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/profile" 
+              element={
+                <AppLayout>
+                  <Profile />
                 </AppLayout>
               } 
             />
