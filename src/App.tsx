@@ -8,6 +8,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AppLayout } from "@/components/app-layout";
 
 import Dashboard from "./pages/Dashboard";
+import Trending from "./pages/Trending";
+import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +27,22 @@ const App = () => (
               element={
                 <AppLayout>
                   <Dashboard />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/trending" 
+              element={
+                <AppLayout>
+                  <Trending />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/research" 
+              element={
+                <AppLayout>
+                  <Research />
                 </AppLayout>
               } 
             />

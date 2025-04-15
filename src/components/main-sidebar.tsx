@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
   BarChart,
@@ -35,8 +35,9 @@ const SidebarItem = ({ icon: Icon, title, to, active }: SidebarItemProps) => {
 };
 
 export function MainSidebar() {
-  // In a real app, this would be determined by the current route
-  const currentRoute = "/";
+  // Use the location to determine the current route
+  const location = useLocation();
+  const currentRoute = location.pathname;
 
   return (
     <aside className="hidden md:flex h-screen w-64 flex-col bg-sidebar border-r fixed left-0 top-0 z-30">
