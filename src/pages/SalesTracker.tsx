@@ -6,13 +6,14 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
-import { ExternalLink, Download, MoreHorizontal, Search } from "lucide-react";
+import { ExternalLink, Download, MoreHorizontal, Search, Plus } from "lucide-react";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
 const SalesTracker = () => {
   const [activeTab, setActiveTab] = useState("stores");
@@ -27,6 +28,7 @@ const SalesTracker = () => {
         <TabsList>
           <TabsTrigger value="stores">Stores</TabsTrigger>
           <TabsTrigger value="products">Products</TabsTrigger>
+          <TabsTrigger value="niches">Niches</TabsTrigger>
         </TabsList>
         
         <TabsContent value="stores" className="space-y-4">
@@ -137,7 +139,9 @@ const SalesTracker = () => {
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem asChild>
+                                <Link to={`/sales-tracker/store/${index + 1}`}>View Details</Link>
+                              </DropdownMenuItem>
                               <DropdownMenuItem>Import to Shopify</DropdownMenuItem>
                               <DropdownMenuItem className="text-destructive">Untrack Store</DropdownMenuItem>
                             </DropdownMenuContent>
@@ -247,7 +251,9 @@ const SalesTracker = () => {
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem asChild>
+                                <Link to={`/sales-tracker/product/${index + 1}`}>View Details</Link>
+                              </DropdownMenuItem>
                               <DropdownMenuItem>Import to Shopify</DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
@@ -265,6 +271,83 @@ const SalesTracker = () => {
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" disabled>Previous</Button>
                   <Button variant="outline" size="sm">Next</Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="niches" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Manage Niches</CardTitle>
+              <CardDescription>Create and manage product niches for better organization</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col md:flex-row justify-between mb-4 gap-4">
+                <div className="flex gap-2 w-full md:w-auto">
+                  <Input placeholder="Add new niche..." className="w-full md:w-64" />
+                  <Button size="icon">
+                    <Plus className="h-4 w-4" />
+                    <span className="sr-only">Add Niche</span>
+                  </Button>
+                </div>
+                <div className="flex gap-2">
+                  <Input placeholder="Search niches..." className="w-full md:w-40" />
+                  <Button variant="outline" size="icon">
+                    <Search className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="rounded-md border">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Niche Name</TableHead>
+                      <TableHead>Stores</TableHead>
+                      <TableHead>Products</TableHead>
+                      <TableHead>Total Revenue</TableHead>
+                      <TableHead className="w-12"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {['Fashion', 'Electronics', 'Home & Garden', 'Beauty', 'Sports'].map((niche, index) => (
+                      <TableRow key={niche}>
+                        <TableCell>
+                          <div className="font-medium">{niche}</div>
+                        </TableCell>
+                        <TableCell>{index + 2}</TableCell>
+                        <TableCell>{(index + 2) * 5}</TableCell>
+                        <TableCell>${(index + 1) * 1250}</TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                                <span className="sr-only">Actions</span>
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuItem>Edit Niche</DropdownMenuItem>
+                              <DropdownMenuItem>View Stores</DropdownMenuItem>
+                              <DropdownMenuItem className="text-destructive">Delete Niche</DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+              
+              <div className="mt-4 flex items-center justify-between">
+                <div className="text-sm text-muted-foreground">
+                  Showing 1-5 of 5 niches
+                </div>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" disabled>Previous</Button>
+                  <Button variant="outline" size="sm" disabled>Next</Button>
                 </div>
               </div>
             </CardContent>

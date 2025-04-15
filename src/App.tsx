@@ -19,6 +19,8 @@ import SupportTickets from "./pages/SupportTickets";
 import Settings from "./pages/Settings";
 import Billing from "./pages/Billing";
 import Profile from "./pages/Profile";
+import StoreDetails from "./pages/StoreDetails";
+import ProductDetails from "./pages/ProductDetails";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +61,22 @@ const App = () => (
               element={
                 <AppLayout>
                   <SalesTracker />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/sales-tracker/store/:storeId" 
+              element={
+                <AppLayout>
+                  <StoreDetails />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/sales-tracker/product/:productId" 
+              element={
+                <AppLayout>
+                  <ProductDetails />
                 </AppLayout>
               } 
             />
