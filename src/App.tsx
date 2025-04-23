@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +20,7 @@ import Billing from "./pages/Billing";
 import Profile from "./pages/Profile";
 import StoreDetails from "./pages/StoreDetails";
 import ProductDetails from "./pages/ProductDetails";
+import Affiliate from "./pages/Affiliate";
 
 const queryClient = new QueryClient();
 
@@ -136,7 +136,14 @@ const App = () => (
                 </AppLayout>
               } 
             />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route 
+              path="/affiliate" 
+              element={
+                <AppLayout>
+                  <Affiliate />
+                </AppLayout>
+              } 
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
