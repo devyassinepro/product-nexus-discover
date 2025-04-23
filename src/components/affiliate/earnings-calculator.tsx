@@ -1,8 +1,8 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import { TrendingUp } from "lucide-react";
 
 export function EarningsCalculator() {
   const [referrals, setReferrals] = useState(10);
@@ -13,25 +13,33 @@ export function EarningsCalculator() {
   const yearlyEarnings = monthlyEarnings * 12;
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-12">
       <div className="text-center">
-        <h2 className="text-3xl font-bold">Calculate Your Earnings</h2>
-        <p className="text-muted-foreground mt-2">See how much you can earn as an affiliate</p>
+        <h2 className="text-3xl font-bold">Potential Earnings Calculator</h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          See how much you can potentially earn by referring our product research SaaS.
+        </p>
       </div>
 
-      <Card>
+      <Card className="max-w-2xl mx-auto">
         <CardHeader>
-          <CardTitle>Earnings Calculator</CardTitle>
+          <CardTitle className="flex items-center">
+            <TrendingUp className="mr-2 h-6 w-6 text-primary" />
+            Earnings Projection
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="referrals">Number of Referrals</Label>
-            <Input
-              id="referrals"
-              type="number"
-              value={referrals}
-              onChange={(e) => setReferrals(Number(e.target.value))}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span className="text-muted-foreground">Number of Referrals</span>
+              <span className="font-semibold">{referrals}</span>
+            </div>
+            <Slider
+              defaultValue={[referrals]}
+              max={50}
               min={1}
+              step={1}
+              onValueChange={(value) => setReferrals(value[0])}
             />
           </div>
 
@@ -46,7 +54,7 @@ export function EarningsCalculator() {
             </div>
           </div>
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground text-center">
             Based on €{monthlyPlan}/month plan with {(commissionRate * 100)}% commission rate
           </p>
         </CardContent>
