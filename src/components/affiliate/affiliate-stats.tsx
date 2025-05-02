@@ -1,17 +1,17 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { StatsCard } from "@/components/dashboard/stats-card";
-import { BarChart, TrendingUp, Users } from "lucide-react";
+import { BarChart, TrendingUp, Users, UserCheck, DollarSign } from "lucide-react";
 
 export function AffiliateStats() {
   return (
-    <section className="space-y-8">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold">Your Performance</h2>
-        <p className="text-muted-foreground mt-2">Track your affiliate success in real-time</p>
+    <section className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-bold">Statistics Overview</h2>
+        <p className="text-muted-foreground text-sm">Track your affiliate performance in real-time</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         <StatsCard
           title="Total Clicks"
           value="1,234"
@@ -19,7 +19,7 @@ export function AffiliateStats() {
           trend={{ value: 12, positive: true }}
         />
         <StatsCard
-          title="Registrations"
+          title="Registered Users"
           value="56"
           icon={<Users className="h-4 w-4 text-muted-foreground" />}
           trend={{ value: 8, positive: true }}
@@ -27,13 +27,19 @@ export function AffiliateStats() {
         <StatsCard
           title="Active Trials"
           value="23"
-          icon={<Users className="h-4 w-4 text-muted-foreground" />}
+          icon={<UserCheck className="h-4 w-4 text-muted-foreground" />}
           description="Converting users"
         />
         <StatsCard
-          title="Monthly Revenue"
+          title="Conversions"
+          value="18"
+          icon={<Check className="h-4 w-4 text-muted-foreground" />}
+          trend={{ value: 4, positive: true }}
+        />
+        <StatsCard
+          title="Total Revenue"
           value="€892"
-          icon={<TrendingUp className="h-4 w-4 text-muted-foreground" />}
+          icon={<DollarSign className="h-4 w-4 text-muted-foreground" />}
           trend={{ value: 15, positive: true }}
         />
       </div>
