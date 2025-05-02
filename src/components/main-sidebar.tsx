@@ -12,6 +12,7 @@ import {
   HelpCircle,
   CreditCard,
   User,
+  Users,
 } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -59,6 +60,9 @@ export function MainSidebar() {
           <SidebarItem icon={Search} title="Product Research" to="/research" active={currentRoute === "/research"} />
           <SidebarItem icon={LineChart} title="Real-Time Search" to="/realtime" active={currentRoute === "/realtime"} />
           <SidebarItem icon={ShoppingCart} title="Shopify Importer" to="/shopify-importer" active={currentRoute === "/shopify-importer"} />
+          
+          <p className="text-sm font-medium text-muted-foreground px-3 py-2 mt-4">Monetization</p>
+          <SidebarItem icon={Users} title="Affiliate Program" to="/affiliate" active={currentRoute === "/affiliate"} />
           
           <p className="text-sm font-medium text-muted-foreground px-3 py-2 mt-4">Support</p>
           <SidebarItem icon={HelpCircle} title="Tutorials" to="/tutorials" active={currentRoute === "/tutorials"} />
