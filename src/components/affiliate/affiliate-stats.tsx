@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { StatsCard } from "@/components/dashboard/stats-card";
-import { BarChart, TrendingUp, Users, UserCheck, DollarSign } from "lucide-react";
+import { BarChart, TrendingUp, Users, UserCheck, DollarSign, Check } from "lucide-react";
 
 export function AffiliateStats() {
   return (
