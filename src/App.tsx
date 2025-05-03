@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +22,8 @@ import Profile from "./pages/Profile";
 import StoreDetails from "./pages/StoreDetails";
 import ProductDetails from "./pages/ProductDetails";
 import Affiliate from "./pages/Affiliate";
+import AffiliateTrialUsers from "./pages/AffiliateTrialUsers";
+import AffiliatePayouts from "./pages/AffiliatePayouts";
 
 const queryClient = new QueryClient();
 
@@ -141,6 +144,22 @@ const App = () => (
               element={
                 <AppLayout>
                   <Affiliate />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/affiliate/trial-users" 
+              element={
+                <AppLayout>
+                  <AffiliateTrialUsers />
+                </AppLayout>
+              } 
+            />
+            <Route 
+              path="/affiliate/payouts" 
+              element={
+                <AppLayout>
+                  <AffiliatePayouts />
                 </AppLayout>
               } 
             />

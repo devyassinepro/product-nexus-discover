@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Link } from "react-router-dom";
 
 const Affiliate = () => {
   return (
@@ -77,10 +78,12 @@ const Affiliate = () => {
                   </TableRow>
                 </TableBody>
               </Table>
-              <Button variant="link" size="sm" className="mt-4">
-                View all trial users
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/affiliate/trial-users">
+                <Button variant="link" size="sm" className="mt-4">
+                  View all trial users
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </CardContent>
           </Card>
           
@@ -110,10 +113,12 @@ const Affiliate = () => {
                   </TableRow>
                 </TableBody>
               </Table>
-              <Button variant="link" size="sm" className="mt-4">
-                View all payouts
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/affiliate/payouts">
+                <Button variant="link" size="sm" className="mt-4">
+                  View all payouts
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
